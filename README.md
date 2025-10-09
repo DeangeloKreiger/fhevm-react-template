@@ -92,7 +92,7 @@ fhevm-react-template/
 
 ## 🎥 Video Demo
 
-See [`demo.mp4`](./demo.mp4) for a complete walkthrough of:
+See [`demo.mp4`] for a complete walkthrough of:
 - SDK installation and setup
 - Integration with different frameworks
 - Real-world use case (private property trading)
@@ -100,8 +100,7 @@ See [`demo.mp4`](./demo.mp4) for a complete walkthrough of:
 
 ## 🌐 Live Demos
 
-- **Next.js Demo**: [https://fhevm-sdk-nextjs.vercel.app](https://fhevm-sdk-nextjs.vercel.app)
-- **Property Trading dApp**: [https://property-trading.vercel.app](https://property-trading.vercel.app)
+- **Property Trading dApp**: [https://deangelokreiger.github.io/PropertyTrading/](https://deangelokreiger.github.io/PropertyTrading/)
 
 ## 💡 Key Design Choices
 
