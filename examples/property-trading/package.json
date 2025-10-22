@@ -1,0 +1,28 @@
+{
+  "name": "property-trading-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Real-world FHEVM SDK integration example - Private Property Trading",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@wagmi/connectors": "^5.0.0",
+    "@wagmi/core": "^2.0.0",
+    "ethers": "^6.13.0",
+    "fhevm-sdk": "workspace:*",
+    "fhevmjs": "^0.6.0",
+    "viem": "^2.0.0",
+    "wagmi": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.5.0",
+    "vite": "^7.1.7"
+  }
+}
