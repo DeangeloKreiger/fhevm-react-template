@@ -1,59 +1,84 @@
 {
-  "name": "@fhevm-sdk",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
+  "name": "fhevm-sdk",
+  "version": "1.0.0",
+  "description": "Universal SDK for building confidential frontends with FHEVM",
   "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "src/index.ts",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./dist/index.js"
-    },
-    "./core": {
-      "types": "./src/core/index.ts",
-      "default": "./dist/core/index.js"
-    },
-    "./storage": {
-      "types": "./src/storage/index.ts",
-      "default": "./dist/storage/index.js"
-    },
-    "./types": {
-      "types": "./src/fhevmTypes.ts",
-      "default": "./dist/fhevmTypes.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./react": {
-      "types": "./src/react/index.ts",
-      "default": "./dist/react/index.js"
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.mjs",
+      "require": "./dist/vue/index.js"
     }
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "watch": "tsc -p tsconfig.json --watch",
-    "clean": "rm -rf dist",
-    "test": "vitest run --coverage",
-    "test:watch": "vitest"
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build:react": "tsup src/react/index.ts --format cjs,esm --dts --outDir dist/react",
+    "build:vue": "tsup src/vue/index.ts --format cjs,esm --dts --outDir dist/vue",
+    "build:all": "pnpm build && pnpm build:react && pnpm build:vue",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
   },
+  "keywords": [
+    "fhevm",
+    "fhe",
+    "encryption",
+    "zama",
+    "confidential",
+    "privacy",
+    "blockchain",
+    "ethereum",
+    "web3",
+    "sdk"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "idb": "^8.0.3"
+    "fhevmjs": "^0.5.2",
+    "ethers": "^6.13.0"
   },
   "peerDependencies": {
-    "@fhevm/mock-utils": "^0.1.0",
-    "@zama-fhe/relayer-sdk": "^0.2.0",
-    "ethers": "^6.13.4",
-    "react": "^18.0.0 || ^19.0.0"
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@types/node": "~18.19.50",
-    "@types/react": "~19.0.7",
-    "@vitest/coverage-v8": "2.1.9",
-    "@zama-fhe/relayer-sdk": "0.2.0",
-    "ethers": "^6.13.7",
-    "fake-indexeddb": "~6.0.0",
-    "jsdom": "^27.0.0",
-    "react": "~19.0.0",
-    "typescript": "~5.8.2",
-    "vitest": "~2.1.8"
-  }
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/fhevm-react-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/fhevm-react-template/issues"
+  },
+  "homepage": "https://github.com/yourusername/fhevm-react-template#readme"
 }
