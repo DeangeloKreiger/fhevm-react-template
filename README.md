@@ -9,7 +9,7 @@
 
 Built for the **Zama FHEVM SDK Competition** - demonstrating practical privacy-preserving applications with enterprise-grade security and performance tooling.
 
-🌐 **[Live Demo](https://deangelokreiger.github.io/PropertyTrading/)** | 📹 **[Video Demo](./demo.mp4)** | 📚 **[Documentation](./docs/getting-started.md)**
+🌐 **[Live Demo](https://deangelokreiger.github.io/PropertyTrading/)** | 📹 **[Video Demo demo1.mp4 demo2.mp4 ]** | 📚 **[Documentation](./docs/getting-started.md)**
 
 ---
 
