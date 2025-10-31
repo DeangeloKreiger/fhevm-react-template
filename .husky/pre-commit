@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# Run linters
+echo "📝 Checking code formatting with Prettier..."
+pnpm prettier --check "**/*.{ts,tsx,js,jsx,json,md,sol}" || {
+  echo "❌ Prettier check failed. Run 'pnpm format' to fix."
+  exit 1
+}
+
+echo "🔍 Running ESLint..."
+pnpm eslint "packages/**/*.{ts,tsx}" "examples/**/*.{ts,tsx}" --max-warnings 0 || {
+  echo "❌ ESLint check failed. Please fix the errors."
+  exit 1
+}
+
+# Check for Solidity files
+if git diff --cached --name-only | grep -q "\.sol$"; then
+  echo "🔍 Running Solhint on Solidity files..."
+  pnpm solhint 'contracts/**/*.sol' || {
+    echo "❌ Solhint check failed. Please fix the errors."
+    exit 1
+  }
+fi
+
+# Type checking
+echo "🔍 Running TypeScript type check..."
+pnpm typecheck || {
+  echo "❌ TypeScript type check failed."
+  exit 1
+}
+
+# Security checks
+echo "🔒 Running security audit..."
+pnpm audit --audit-level=moderate || {
+  echo "⚠️  Security vulnerabilities found. Please review."
+}
+
+echo "✅ All pre-commit checks passed!"
