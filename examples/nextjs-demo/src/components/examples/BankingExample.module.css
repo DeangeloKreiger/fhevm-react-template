@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #111827;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.result {
+  padding: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 0.5rem;
+}
+
+.success {
+  margin: 0 0 0.5rem;
+  color: #166534;
+  font-weight: 500;
+}
+
+.encrypted {
+  margin: 0;
+  padding: 0.75rem;
+  background: #dcfce7;
+  border-radius: 0.375rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #166534;
+  word-break: break-all;
+}
+
+.note {
+  padding: 1rem;
+  background: #dbeafe;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #1e40af;
+  line-height: 1.6;
+}
